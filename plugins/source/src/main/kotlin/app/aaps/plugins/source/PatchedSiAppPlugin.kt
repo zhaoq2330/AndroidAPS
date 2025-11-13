@@ -24,39 +24,39 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class OttaiPlugin @Inject constructor(
+class PatchedSiAppPlugin @Inject constructor(
     rh: ResourceHelper,
     aapsLogger: AAPSLogger,
     preferences: Preferences
 ) : AbstractBgSourcePlugin(
-    pluginDescription = PluginDescription()
+    PluginDescription()
         .mainType(PluginType.BGSOURCE)
         .fragmentClass(BGSourceFragment::class.java.name)
-        .pluginIcon(app.aaps.core.objects.R.drawable.ic_ottai)
+        .pluginIcon(app.aaps.core.objects.R.drawable.ic_generic_cgm)
         .preferencesId(PluginDescription.PREFERENCE_SCREEN)
-        .pluginName(R.string.ottai_app)
+        .pluginName(R.string.patched_si_app)
         .preferencesVisibleInSimpleMode(false)
-        .description(R.string.description_source_patched_ottai_app),
+        .description(R.string.description_source_patched_si_app),
     ownPreferences = emptyList(),
     aapsLogger, rh, preferences
 ), BgSource {
 
-    class OttaiWorker(
+    class PatchedSiAppWorker(
         context: Context,
         params: WorkerParameters
     ) : LoggingWorker(context, params, Dispatchers.IO) {
 
-        @Inject lateinit var ottaiPlugin: OttaiPlugin
+        @Inject lateinit var patchedSIAppPlugin: PatchedSiAppPlugin
         @Inject lateinit var persistenceLayer: PersistenceLayer
 
         @SuppressLint("CheckResult")
         override suspend fun doWorkAndLog(): Result {
             var ret = Result.success()
-            if (!ottaiPlugin.isEnabled()) return Result.success(workDataOf("Result" to "Plugin not enabled"))
+            if (!patchedSIAppPlugin.isEnabled()) return Result.success(workDataOf("Result" to "Plugin not enabled"))
             val collection = inputData.getString("collection") ?: return Result.failure(workDataOf("Error" to "missing collection"))
             if (collection == "entries") {
                 val data = inputData.getString("data")
-                aapsLogger.debug(LTag.BGSOURCE, "Received Ottai Data $data")
+                aapsLogger.debug(LTag.BGSOURCE, "Received SI App Data $data")
                 if (!data.isNullOrEmpty()) {
                     try {
                         val glucoseValues = mutableListOf<GV>()
@@ -71,13 +71,13 @@ class OttaiPlugin @Inject constructor(
                                         raw = null,
                                         noise = null,
                                         trendArrow = TrendArrow.fromString(jsonObject.getString("direction")),
-                                        sourceSensor = SourceSensor.OTTAI
+                                        sourceSensor = SourceSensor.SIBIONIC
                                     )
 
                                 else  -> aapsLogger.debug(LTag.BGSOURCE, "Unknown entries type: $type")
                             }
                         }
-                        persistenceLayer.insertCgmSourceData(Sources.Ottai, glucoseValues, emptyList(), null)
+                        persistenceLayer.insertCgmSourceData(Sources.SiBionic, glucoseValues, emptyList(), null)
                             .doOnError { ret = Result.failure(workDataOf("Error" to it.toString())) }
                             .blockingGet()
                     } catch (e: JSONException) {

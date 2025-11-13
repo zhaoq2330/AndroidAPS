@@ -5,24 +5,24 @@ import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class GlimpPluginTest : TestBaseWithProfile() {
+class DexcomPluginTest : TestBaseWithProfile() {
 
-    private lateinit var glimpPlugin: GlimpPlugin
+    private lateinit var dexcomPlugin: DexcomPlugin
 
     @BeforeEach
     fun setup() {
-        glimpPlugin = GlimpPlugin(rh, aapsLogger, preferences)
+        dexcomPlugin = DexcomPlugin(rh, aapsLogger, context, config)
     }
 
     @Test
     fun advancedFilteringSupported() {
-        assertThat(glimpPlugin.advancedFilteringSupported()).isFalse()
+        assertThat(dexcomPlugin.advancedFilteringSupported()).isTrue()
     }
 
     @Test
     fun preferenceScreenTest() {
         val screen = preferenceManager.createPreferenceScreen(context)
-        glimpPlugin.addPreferenceScreen(preferenceManager, screen, context, null)
+        dexcomPlugin.addPreferenceScreen(preferenceManager, screen, context, null)
         assertThat(screen.preferenceCount).isGreaterThan(0)
     }
 }
