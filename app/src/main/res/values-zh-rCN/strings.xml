@@ -26,4 +26,32 @@
     <string name="remove_selected_items">删除选中项？</string>
     <string name="count_selected">已选中 %1$d</string>
     <string name="sort_label">排序</string>
+    <string name="dialog_canceled">对话框已取消</string>
+    <string name="veryLow" comment="below 3.1">非常低</string>
+    <string name="low" comment="3.1-3.9">低</string>
+    <string name="high" comment="10.0-13.9">高</string>
+    <string name="veryHigh" comment="above 13.9">非常高</string>
+    <string name="below" comment="below &quot;in range&quot;">底部</string>
+    <string name="in_range">在范围内</string>
+    <string name="above" comment="above &quot;in range&quot;">上方</string>
+    <string name="show_loop_records">显示闭环记录</string>
+    <string name="show_hide_records">隐藏闭环记录</string>
+    <string name="widget_description">AndroidAPS小部件</string>
+    <string name="configure">配置透明度</string>
+    <string name="loop_status">闭环状态</string>
+    <string name="graph_scale">图形缩放</string>
+    <string name="profile1">配置文件 1</string>
+    <string name="profile2">配置文件 2</string>
+    <string name="login">登录</string>
+    <string name="remove_all">删除全部</string>
+    <string name="a11y_otp_qr_code">用于安装一次性随机验证码的二维码</string>
+    <string name="a11y_open_settings">打开设置</string>
+    <string name="a11y_set_carb_timer">设置碳水计时器提醒</string>
+    <string name="device_all">全部</string>
+    <string name="device_phone">手机</string>
+    <string name="device_watch">手表</string>
+    <string name="a11y_only_on_watch">仅在手表时</string>
+    <string name="a11y_only_on_phone">仅在手机上</string>
+    <string name="a11y_drag_and_drop_handle">拖放操作</string>
+    <string name="about_plugin">微信公众号/抖音: 一型码农Lex</string>
 </resources>

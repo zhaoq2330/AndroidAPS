@@ -97,11 +97,9 @@ data class GlucoseValue(
         AIDEX,
         RANDOM,
         UNKNOWN,
-        OTTAI,
+        OUTAI,
         SIBIONIC,
         SINO,
-        SYAI_TAG,
-
         IOB_PREDICTION,
         A_COB_PREDICTION,
         COB_PREDICTION,

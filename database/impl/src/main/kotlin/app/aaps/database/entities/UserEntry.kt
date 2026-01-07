@@ -192,8 +192,7 @@ data class UserEntry(
         Food,               //From Food plugin
         ConfigBuilder,      //From ConfigBuilder Plugin
         Overview,           //From OverViewPlugin
-        Ottai,              //From Ottai plugin
-        SyaiTag,            //From Syai Tag plugin
+        Outai,              //From Ottai Plugin
         SiBionic,
         Sino,
         Stats,              //From Stat Activity

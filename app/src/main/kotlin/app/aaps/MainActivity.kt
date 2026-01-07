@@ -196,7 +196,8 @@ class MainActivity : DaggerAppCompatActivityWithResult() {
                     }
 
                     R.id.nav_about              -> {
-                        var message = "Build: ${config.BUILD_VERSION}\n"
+                        var message = "${rh.gs(R.string.about_plugin)}\n"
+                        message += "Build: ${BuildConfig.BUILDVERSION}\n"
                         message += "Flavor: ${BuildConfig.FLAVOR}${BuildConfig.BUILD_TYPE}\n"
                         message += "${rh.gs(app.aaps.plugins.configuration.R.string.configbuilder_nightscoutversion_label)} ${activePlugin.activeNsClient?.detectedNsVersion() ?: rh.gs(app.aaps.plugins.main.R.string.not_available_full)}"
                         if (config.isEngineeringMode()) message += "\n${rh.gs(app.aaps.plugins.configuration.R.string.engineering_mode_enabled)}"
