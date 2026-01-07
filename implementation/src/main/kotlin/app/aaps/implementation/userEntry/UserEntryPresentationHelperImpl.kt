@@ -120,9 +120,6 @@ class UserEntryPresentationHelperImpl @Inject constructor(
         Sources.Unknown             -> app.aaps.core.ui.R.drawable.ic_generic_icon
         Sources.Random              -> R.drawable.ic_aaps
         Sources.BgFragment          -> R.drawable.ic_aaps
-        Sources.Outai               -> app.aaps.core.ui.R.mipmap.ottai_icon
-        Sources.SiBionic            -> app.aaps.core.ui.R.drawable.ic_generic_icon
-        Sources.Sino                -> app.aaps.core.ui.R.drawable.ic_generic_icon
     }
 
     override fun actionToColoredString(action: Action): Spanned = when (action) {

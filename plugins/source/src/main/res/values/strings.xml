@@ -31,12 +31,16 @@
     <string name="direction">direction</string>
     <string name="bg_generation_interval_minutes">BG generation interval minutes</string>
     <!-- Patched OT App -->
-    <string name="patched_ottai_app">欧态-小欧生态</string>
-    <string name="description_source_patched_ottai_app">从欧态易测APP接收血糖值。</string>
-    <!-- Patched SI and Sino App -->
-    <string name="patched_si_app">Patched SI App</string>
-    <string name="patched_sino_app">Patched Sino App</string>
-    <string name="description_source_patched_si_app">Receive BG values from the Patched SI App.</string>
-    <string name="description_source_patched_sino_app">Receive BG values from the Patched Sino App.</string>
+    <string name="patched_ottai_app">Ottai App</string>
+    <string name="description_source_patched_ottai_app">Receive glucose data from Ottai App.</string>
+    <!-- Patched Syai Tag App -->
+    <string name="syai_tag_app">Syai</string>
+    <string name="description_source_patched_syai_tag_app">Receive glucose data from Syai/Ottai App.</string>
+    <!-- Patched SI App -->
+    <string name="patched_si_app">SI App</string>
+    <string name="description_source_patched_si_app">Receive glucose data from Patched Sibionic SI App.</string>
+    <!-- Patched Sino App -->
+    <string name="patched_sino_app">Sino App</string>
+    <string name="description_source_patched_sino_app">Receive glucose data from Patched Sino App.</string>
 
 </resources>

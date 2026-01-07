@@ -83,9 +83,6 @@ fun UserEntry.Sources.fromDb(): Sources =
         UserEntry.Sources.Garmin              -> Sources.Garmin
         UserEntry.Sources.Database            -> Sources.Database
         UserEntry.Sources.Unknown             -> Sources.Unknown
-        UserEntry.Sources.Outai               -> Sources.Outai
-        UserEntry.Sources.SiBionic            -> Sources.SiBionic
-        UserEntry.Sources.Sino                -> Sources.Sino
     }
 
 fun Sources.toDb(): UserEntry.Sources =
@@ -168,8 +165,5 @@ fun Sources.toDb(): UserEntry.Sources =
         Sources.Garmin              -> UserEntry.Sources.Garmin
         Sources.Database            -> UserEntry.Sources.Database
         Sources.Unknown             -> UserEntry.Sources.Unknown
-        Sources.Outai               -> UserEntry.Sources.Outai
-        Sources.SiBionic             -> UserEntry.Sources.SiBionic
-        Sources.Sino               -> UserEntry.Sources.Sino
     }
 

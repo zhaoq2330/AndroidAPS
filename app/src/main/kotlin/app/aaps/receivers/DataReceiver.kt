@@ -19,10 +19,10 @@ import app.aaps.plugins.main.general.smsCommunicator.SmsCommunicatorPlugin
 import app.aaps.plugins.source.DexcomPlugin
 import app.aaps.plugins.source.GlimpPlugin
 import app.aaps.plugins.source.MM640gPlugin
-import app.aaps.plugins.source.PathedOTAppPlugin
-import app.aaps.plugins.source.PathedSIAppPlugin
-import app.aaps.plugins.source.PathedSinoAppPlugin
+import app.aaps.plugins.source.PatchedSiAppPlugin
+import app.aaps.plugins.source.PatchedSinoAppPlugin
 import app.aaps.plugins.source.PoctechPlugin
+import app.aaps.plugins.source.SyaiPlugin
 import app.aaps.plugins.source.TomatoPlugin
 import app.aaps.plugins.source.XdripSourcePlugin
 import dagger.android.DaggerBroadcastReceiver
@@ -75,24 +75,29 @@ open class DataReceiver : DaggerBroadcastReceiver() {
                         it.copyString("collection", bundle)
                         it.copyString("data", bundle)
                     }.build()).build()
-            Intents.OTAPP_BG                       ->
-                OneTimeWorkRequest.Builder(PathedOTAppPlugin.PathedOTAppWorker::class.java)
+
+            Intents.OTTAI_APP, Intents.OTTAI_APP_CN,
+            Intents.SYAI_APP                          ->
+                OneTimeWorkRequest.Builder(SyaiPlugin.SyaiWorker::class.java)
                     .setInputData(Data.Builder().also {
                         it.copyString("collection", bundle)
                         it.copyString("data", bundle)
                     }.build()).build()
-            Intents.SIAPP_BG                       ->
-                OneTimeWorkRequest.Builder(PathedSIAppPlugin.PathedSIAppWorker::class.java)
+
+            Intents.SI_APP                            ->
+                OneTimeWorkRequest.Builder(PatchedSiAppPlugin.PatchedSiAppWorker::class.java)
                     .setInputData(Data.Builder().also {
                         it.copyString("collection", bundle)
                         it.copyString("data", bundle)
                     }.build()).build()
-            Intents.SINOAPP_BG                       ->
-                OneTimeWorkRequest.Builder(PathedSinoAppPlugin.PathedSinoAppWorker::class.java)
+
+            Intents.SINO_APP                          ->
+                OneTimeWorkRequest.Builder(PatchedSinoAppPlugin.PatchedSinoAppWorker::class.java)
                     .setInputData(Data.Builder().also {
                         it.copyString("collection", bundle)
                         it.copyString("data", bundle)
                     }.build()).build()
+
             Telephony.Sms.Intents.SMS_RECEIVED_ACTION ->
                 OneTimeWorkRequest.Builder(SmsCommunicatorPlugin.SmsCommunicatorWorker::class.java)
                     .setInputData(dataWorkerStorage.storeInputData(bundle, intent.action)).build()

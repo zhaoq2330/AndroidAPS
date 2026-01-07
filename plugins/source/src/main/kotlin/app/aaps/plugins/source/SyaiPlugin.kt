@@ -32,11 +32,11 @@ class SyaiPlugin @Inject constructor(
     PluginDescription()
         .mainType(PluginType.BGSOURCE)
         .fragmentClass(BGSourceFragment::class.java.name)
-        .pluginIcon(app.aaps.core.objects.R.drawable.ic_syai_tag)
+        .pluginIcon(app.aaps.core.ui.R.mipmap.ottai_icon)
         .preferencesId(PluginDescription.PREFERENCE_SCREEN)
-        .pluginName(R.string.syai_tag_app)
+        .pluginName(R.string.patched_ottai_app)
         .preferencesVisibleInSimpleMode(false)
-        .description(R.string.description_source_patched_syai_tag_app),
+        .description(R.string.description_source_patched_ottai_app),
     ownPreferences = emptyList(),
     aapsLogger, rh, preferences
 ), BgSource {
