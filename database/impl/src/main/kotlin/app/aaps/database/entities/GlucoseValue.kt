@@ -98,6 +98,7 @@ data class GlucoseValue(
         RANDOM,
         UNKNOWN,
         OTTAI,
+        SIBIONIC_GS1_NATIVE,
         SIBIONIC,
         SINO,
         SYAI_TAG,
