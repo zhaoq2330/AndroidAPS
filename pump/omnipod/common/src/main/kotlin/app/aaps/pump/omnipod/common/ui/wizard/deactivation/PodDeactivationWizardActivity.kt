@@ -15,6 +15,11 @@ abstract class PodDeactivationWizardActivity : OmnipodWizardActivityBase() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
+        val navController = getNavController()
+        val navInflater = navController.navInflater
+        val graph = navInflater.inflate(R.navigation.omnipod_common_pod_activation_wizard_navigation_graph)
+        graph.setStartDestination((R.id.startPodDeactivationFragment)
+        navController.graph = graph
     }
 
     override fun getTotalDefinedNumberOfSteps(): Int = 3
