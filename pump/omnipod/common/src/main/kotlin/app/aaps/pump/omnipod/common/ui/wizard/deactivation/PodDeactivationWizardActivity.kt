@@ -1,10 +1,14 @@
 package app.aaps.pump.omnipod.common.ui.wizard.deactivation
 
 import android.os.Bundle
+import androidx.annotation.IdRes
 import app.aaps.pump.omnipod.common.R
 import app.aaps.pump.omnipod.common.ui.wizard.common.activity.OmnipodWizardActivityBase
 
 abstract class PodDeactivationWizardActivity : OmnipodWizardActivityBase() {
+
+    @IdRes
+    private var startDestination: Int = R.id.startPodDeactivationFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,8 +21,8 @@ abstract class PodDeactivationWizardActivity : OmnipodWizardActivityBase() {
 
         val navController = getNavController()
         val navInflater = navController.navInflater
-        val graph = navInflater.inflate(R.navigation.omnipod_common_pod_activation_wizard_navigation_graph)
-        graph.setStartDestination((R.id.startPodDeactivationFragment)
+        val graph = navInflater.inflate(R.navigation.omnipod_common_pod_deactivation_wizard_navigation_graph)
+        graph.setStartDestination(startDestination)
         navController.graph = graph
     }
 
